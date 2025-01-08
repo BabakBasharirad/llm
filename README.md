@@ -30,7 +30,7 @@ cd ~/Documents/Projects
 
 Enter this in the terminal in the Projects folder:
 
-`git clone https://github.com/ed-donner/llm_engineering.git`
+`git clone https://github.com/BabakBasharirad/llm.git`
 
 This creates a new directory `llm_engineering` within your Projects folder and downloads the code for the class. Do `cd llm_engineering` to go into it. This `llm_engineering` directory is known as the "project root directory".
 
