@@ -1,177 +1,109 @@
 # LLM Lesson
 
-## Setup instructions for Mac
 
-Welcome!
+I'm so happy you're joining me on this path. We'll be building immensely satisfying projects in the coming weeks. Some will be easy, some will be challenging, many will ASTOUND you! The projects build on each other so you develop deeper and deeper expertise each week. One thing's for sure: you're going to have a lot of fun along the way.
 
-I recommend using Anaconda to set up the environment for this lesson.
 
-### Part 1: Clone the Repo
+## Install Ollama on your local machine
 
-This gets you a local copy of the code on your box.
+If you would like to use a local free LLM on your machine, then follow the instructions to install Ollama on your device:
+1. Download and install Ollama from https://ollama.com noting that on a PC you might need to have administrator permissions for the install to work properly
+2. On a PC, start a Command prompt / Powershell (Press Win + R, type `cmd`, and press Enter). On a Mac, start a Terminal (Applications > Utilities > Terminal).
+3. Run `ollama run llama3.2` or for smaller machines try `ollama run llama3.2:1b` - **please note** steer clear of Meta's latest model llama3.3 because at 70B parameters that's way too large for most home computers!  
+4. If this doesn't work, you may need to run `ollama serve` in another Powershell (Windows) or Terminal (Mac), and try step 3 again
+5. And if that doesn't work on your box, I've set up this on the cloud. This is on Google Colab, which will need you to have a Google account to sign in, but is free:  https://colab.research.google.com/drive/1-_f5XZPsChvfU1sJ0QqCePtIuc55LSdu?usp=sharing
 
-1. **Install Git** if not already installed (it will be in most cases)
+Any problems, please contact me!
 
-- Open Terminal (Applications > Utilities > Terminal)
-- Type `git --version` If not installed, you'll be prompted to install it
+## Then, Setup instructions
 
-2. **Navigate to your projects folder:**
+After we do the Ollama quick project, and after I introduce myself and the course, we get to work with the full environment setup.  
 
-If you have a specific folder for projects, navigate to it using the cd command. For example:
-`cd ~/Documents/Projects`
+Hopefully I've done a decent job of making these guides bulletproof - but please contact me right away if you hit roadblocks:
 
-If you don't have a projects folder, you can create one:
-```
-mkdir ~/Documents/Projects
-cd ~/Documents/Projects
-```
+- PC people please follow the instructions in [SETUP-PC.md](SETUP-PC.md)
+- Mac people please follow the instructions in [SETUP-mac.md](SETUP-mac.md)  
+- Linux people please follow the instructions in [SETUP-linux.md](SETUP-linux.md)
 
-3. **Clone the repository:**
+The are also PDF versions of the setup instructions in this folder if you'd prefer.
 
-Enter this in the terminal in the Projects folder:
+### An important point on API costs (which are optional! No need to spend if you don't wish)
 
-`git clone https://github.com/BabakBasharirad/llm.git`
+During the course, I'll suggest you try out the leading models at the forefront of progress, known as the Frontier models. I'll also suggest you run open-source models using Google Colab. These services have some charges, but I'll keep cost minimal - like, a few cents at a time. And I'll provide alternatives if you'd prefer not to use them.
 
-This creates a new directory `llm` within your Projects folder and downloads the code for the class. Do `cd llm` to go into it. This `llm` directory is known as the "project root directory".
+Please do monitor your API usage to ensure you're comfortable with spend; I've included links below. There's no need to spend anything more than a couple of dollars for the entire course. Some AI providers such as OpenAI require a minimum credit like \$5 or local equivalent; we should only spend a fraction of it, and you'll have plenty of opportunity to put it to good use in your own projects. During Week 7 you have an option to spend a bit more if you're enjoying the process - I spend about \$10 myself and the results make me very happy indeed! But it's not necessary in the least; the important part is that you focus on learning.
 
-### Part 2: Install Anaconda environment
+### Free alternative to Paid APIs
 
-If this Part 2 gives you any problems, there is an alternative Part 2B below that can be used instead.
+Early in the course, I show you an alternative if you'd rather not spend anything on APIs:  
+Any time that we have code like:  
+`openai = OpenAI()`  
+You can use this as a direct replacement:  
+`openai = OpenAI(base_url='http://localhost:11434/v1', api_key='ollama')`
 
-1. **Install Anaconda:**
-
-- Download Anaconda from https://docs.anaconda.com/anaconda/install/mac-os/
-- Double-click the downloaded file and follow the installation prompts. Note that it takes up several GB and take a while to install, but it will be a powerful platform for you to use in the future.
-
-2. **Set up the environment:**
-
-- Open a new Terminal (Applications > Utilities > Terminal)
-- Navigate to the "project root directory" using `cd ~/Documents/Projects/llm` (replace this path as needed with the actual path to the llm directory, your locally cloned version of the repo). Do `ls` and check you can see subdirectories for each week of the course.
-- Create the environment: `conda env create -f environment.yml`
-- Wait for a few minutes for all packages to be installed - in some cases, this can literally take 20-30 minutes if you've not used Anaconda before, and even longer depending on your internet connection. Important stuff is happening! If this runs for more than 1 hour 15 mins, or gives you other problems, please go to Part 2B instead.
-- You have now built an isolated, dedicated AI environment for engineering LLMs, running vector datastores, and so much more! You now need to **activate** it using this command: `conda activate llm_env`  
-
-You should see `(llm_env)` in your prompt, which indicates you've activated your new environment.
-
-3. **Start Jupyter Lab:**
-
-- In the Terminal window, from within the `llm` folder, type: `jupyter lab`
-
-...and Jupyter Lab should open up in a browser. If you've not seen Jupyter Lab before, I'll explain it in a moment! Now close the jupyter lab browser tab, and close the Terminal, and move on to Part 3.
-
-### Part 2B - Alternative to Part 2 if Anaconda gives you trouble
-
-1. **Open a new Terminal** (Applications > Utilities > Terminal)
-
-Run `python --version` to find out which python you're on. Ideally you'd be using a version of Python 3.11, so we're completely in sync.  
-If not, it's not a big deal, but we might need to come back to this later if you have compatibility issues.  
-You can download python here:  
-https://www.python.org/downloads/
-
-2. Navigate to the "project root directory" using `cd ~/Documents/Projects/llm` (replace this path with the actual path to the llm directory, your locally cloned version of the repo). Do `ls` and check you can see subdirectories for each week of the course.  
-
-Then, create a new virtual environment with this command:  
-`python -m venv llm_env`
-
-3. Activate the virtual environment with  
-`source llm_env/bin/activate`
-You should see (llm_env) in your command prompt, which is your sign that things are going well.
-
-4. Run `python -m pip install --upgrade pip` followed by `pip install -r requirements.txt`  
-This may take a few minutes to install.
-In the very unlikely event that this doesn't go well, you should try the bullet-proof (but slower) version:  
-`pip install --retries 5 --timeout 15 --no-cache-dir --force-reinstall -r requirements.txt`
-
-5. **Start Jupyter Lab:**
-
-From within the `llm` folder, type: `jupyter lab`  
-...and Jupyter Lab should open up, ready for you to get started. Open the `week1` folder and double click on `day1.ipynb`. Success! Now close down jupyter lab and move on to Part 3.
-
-If there are any problems, contact me!
-
-### Part 3 - OpenAI key (OPTIONAL but recommended)
-
-Particularly during weeks 1 and 2 of the course, you'll be writing code to call the APIs of Frontier models (models at the forefront of AI).
-
-For week 1, you'll only need OpenAI, and you can add the others if you wish later on.
-
-1. Create an OpenAI account if you don't have one by visiting:
-https://platform.openai.com/
-
-2. OpenAI asks for a minimum credit to use the API. For me in the US, it's \$5. The API calls will spend against this \$5. On this course, we'll only use a small portion of this. I do recommend you make the investment as you'll be able to put it to excellent use. But if you'd prefer not to pay for the API, I give you an alternative in the course using Ollama.
-
-You can add your credit balance to OpenAI at Settings > Billing:  
-https://platform.openai.com/settings/organization/billing/overview
-
-I recommend you disable the automatic recharge!
-
-3. Create your API key
-
-The webpage where you set up your OpenAI key is at https://platform.openai.com/api-keys - press the green 'Create new secret key' button and press 'Create secret key'. Keep a record of the API key somewhere private; you won't be able to retrieve it from the OpenAI screens in the future. It should start `sk-proj-`.
-
-In week 2 we will also set up keys for Anthropic and Google, which you can do here when we get there.  
-- Claude API at https://console.anthropic.com/ from Anthropic
-- Gemini API at https://ai.google.dev/gemini-api from Google
-
-Later in the course you'll be using the fabulous HuggingFace platform; an account is available for free at https://huggingface.co - you can create an API token from the Avatar menu >> Settings >> Access Tokens.
-
-And in Week 6/7 you'll be using the terrific Weights & Biases at https://wandb.ai to watch over your training batches. Accounts are also free, and you can set up a token in a similar way.
-
-### PART 4 - .env file
-
-When you have these keys, please create a new file called `.env` in your project root directory. The filename needs to be exactly the four characters ".env" rather than "my-keys.env" or ".env.txt". Here's how to do it:
-
-1. Open Terminal (Applications > Utilities > Terminal)
-
-2. Navigate to the "project root directory" using `cd ~/Documents/Projects/llm` (replace this path with the actual path to the llm directory, your locally cloned version of the repo).
-
-3. Create the .env file with
-
-nano .env
-
-4. Then type your API keys into nano, replacing xxxx with your API key (starting `sk-proj-`).
+Below is a full example:
 
 ```
-OPENAI_API_KEY=xxxx
+# You need to do this one time on your computer
+!ollama pull llama3.2
+
+from openai import OpenAI
+MODEL = "llama3.2"
+openai = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+
+response = openai.chat.completions.create(
+ model=MODEL,
+ messages=[{"role": "user", "content": "What is 2 + 2?"}]
+)
+
+print(response.choices[0].message.content)
 ```
 
-If you have other keys, you can add them too, or come back to this in future weeks:  
-```
-GOOGLE_API_KEY=xxxx
-ANTHROPIC_API_KEY=xxxx
-HF_TOKEN=xxxx
-```
+### How this Repo is organized
 
-5. Save the file:
+There are folders for each of the "weeks", representing modules of the class, culminating in a powerful autonomous Agentic AI solution in Week 8 that draws on many of the prior weeks.    
+Follow the setup instructions above, then open the Week 1 folder and prepare for joy.
 
-Control + O  
-Enter (to confirm save the file)  
-Control + X to exit the editor
+### The most important part
 
-6. Use this command to list files in your project root directory:
+The mantra of the course is: the best way to learn is by **DOING**. I don't type all the code during the course; I execute it for you to see the results. You should work along with me or after each lecture, running each cell, inspecting the objects to get a detailed understanding of what's happening. Then tweak the code and make it your own. There are juicy challenges for you throughout the course. I'd love it if you wanted to submit a Pull Request for your code (instructions [here](https://chatgpt.com/share/677a9cb5-c64c-8012-99e0-e06e88afd293)) and I can make your solutions available to others so we share in your progress; as an added benefit, you'll be recognized in GitHub for your contribution to the repo. While the projects are enjoyable, they are first and foremost designed to be _educational_, teaching you business skills that can be put into practice in your work.
 
-`ls -a`
+## Starting in Week 3, we'll also be using Google Colab for running with GPUs
 
-And confirm that the `.env` file is there.
+You should be able to use the free tier or minimal spend to complete all the projects in the class. I personally signed up for Colab Pro+ and I'm loving it - but it's not required.
 
-This file won't appear in Jupyter Lab because jupyter hides files starting with a dot. This file is listed in the `.gitignore` file, so it won't get checked in and your keys stay safe.
+Learn about Google Colab and set up a Google account (if you don't already have one) [here](https://colab.research.google.com/)
 
-### Part 5 - Showtime!!
+The colab links are in the Week folders and also here:  
+- For week 3 day 1, this Google Colab shows what [colab can do](https://colab.research.google.com/drive/1DjcrYDZldAXKJ08x1uYIVCtItoLPk1Wr?usp=sharing)
+- For week 3 day 2, here is a colab for the HuggingFace [pipelines API](https://colab.research.google.com/drive/1aMaEw8A56xs0bRM4lu8z7ou18jqyybGm?usp=sharing)
+- For week 3 day 3, here's the colab on [Tokenizers](https://colab.research.google.com/drive/1WD6Y2N7ctQi1X9wa6rpkg8UfyA4iSVuz?usp=sharing)
+- For week 3 day 4, we go to a colab with HuggingFace [models](https://colab.research.google.com/drive/1hhR9Z-yiqjUe7pJjVQw4c74z_V3VchLy?usp=sharing)
+- For week 3 day 5, we return to colab to make our [Meeting Minutes product](https://colab.research.google.com/drive/1KSMxOCprsl1QRpt_Rq0UqCAyMtPqDQYx?usp=sharing)
+- For week 7, we will use these Colab books: [Day 1](https://colab.research.google.com/drive/15rqdMTJwK76icPBxNoqhI7Ww8UM-Y7ni?usp=sharing) | [Day 2](https://colab.research.google.com/drive/1T72pbfZw32fq-clQEp-p8YQ4_qFKv4TP?usp=sharing) | [Days 3 and 4](https://colab.research.google.com/drive/1csEdaECRtjV_1p9zMkaKKjCpYnltlN3M?usp=sharing) | [Day 5](https://colab.research.google.com/drive/1igA0HF0gvQqbdBD4GkcK3GpHtuDLijYn?usp=sharing)
 
-- Open Terminal (Applications > Utilities > Terminal)
-  
-- Navigate to the "project root directory" using `cd ~/Documents/Projects/llm` (replace this path with the actual path to the llm directory, your locally cloned version of the repo). Do `ls` and check you can see subdirectories for each week of the course.  
+### Monitoring API charges
 
-- Activate your environment with `conda activate llm_env` (or `source llm_env/bin/activate` if you used the alternative approach in Part 2B)
+You can keep your API spend very low throughout this course; you can monitor spend at the dashboards: [here](https://platform.openai.com/usage) for OpenAI, [here](https://console.anthropic.com/settings/cost) for Anthropic and [here](https://console.cloud.google.com/apis/api/generativelanguage.googleapis.com/cost) for Google Gemini.
 
-- You should see (llm_env) in your prompt which is your sign that all is well. And now, type: `jupyter lab` and Jupyter Lab should open up, ready for you to get started. Open the `week1` folder and double click on `day1.ipynb`.
-
-And you're off to the races!
-
-Note that any time you start jupyter lab in the future, you'll need to follow these Part 5 instructions to start it from within the `llm` directory with the `llm_env` environment activated.
-
-For those new to Jupyter Lab / Jupyter Notebook, it's a delightful Data Science environment where you can simply hit shift+return in any cell to run it; start at the top and work your way down! I've included a notebook called 'Guide to Jupyter' that shows you more features. When we move to Google Colab in Week 3, you'll experience the same interface for Python runtimes in the cloud. 
-
-If you have any problems, I've included a notebook in week1 called [troubleshooting.ipynb](week1/troubleshooting.ipynb) to figure it out.
+The charges for the exercsies in this course should always be quite low, but if you'd prefer to keep them minimal, then be sure to always choose the cheapest versions of models:
+1. For OpenAI: Always use model `gpt-4o-mini` in the code instead of `gpt-4o`
+2. For Anthropic: Always use model `claude-3-haiku-20240307` in the code instead of the other Claude models
+3. During week 7, look out for my instructions for using the cheaper dataset
 
 Please do message me or email me at ed@edwarddonner.com if this doesn't work or if I can help with anything. I can't wait to hear how you get on.
+
+<table style="margin: 0; text-align: left;">
+    <tr>
+        <td style="width: 150px; height: 150px; vertical-align: middle;">
+            <img src="resources.jpg" width="150" height="150" style="display: block;" />
+        </td>
+        <td>
+            <h2 style="color:#f71;">Other resources</h2>
+            <span style="color:#f71;">I've put together this webpage with useful resources for the course. This includes links to all the slides.<br/>
+            <a href="https://edwarddonner.com/2024/11/13/llm-engineering-resources/">https://edwarddonner.com/2024/11/13/llm-engineering-resources/</a><br/>
+            Please keep this bookmarked, and I'll continue to add more useful links there over time.
+            </span>
+        </td>
+    </tr>
+</table>
