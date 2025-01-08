@@ -1,6 +1,3 @@
-
-# LLM Lesson
-
 ## Setup instructions for Mac
 
 Welcome!
