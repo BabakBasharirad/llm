@@ -2,8 +2,6 @@
 
 Welcome!
 
-I recommend using Anaconda to set up the environment for this lesson.
-
 ### Part 1: Clone the Repo
 
 This gets you a local copy of the code on your box.
