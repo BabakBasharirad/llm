@@ -1,7 +1,5 @@
 ## Setup instructions for Mac
 
-Welcome!
-
 ### Part 1: Clone the Repo
 
 This gets you a local copy of the code on your box.
