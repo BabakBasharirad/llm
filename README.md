@@ -32,7 +32,7 @@ Enter this in the terminal in the Projects folder:
 
 `git clone https://github.com/BabakBasharirad/llm.git`
 
-This creates a new directory `llm_engineering` within your Projects folder and downloads the code for the class. Do `cd llm_engineering` to go into it. This `llm_engineering` directory is known as the "project root directory".
+This creates a new directory `llm` within your Projects folder and downloads the code for the class. Do `cd llm` to go into it. This `llm` directory is known as the "project root directory".
 
 ### Part 2: Install Anaconda environment
 
@@ -46,16 +46,16 @@ If this Part 2 gives you any problems, there is an alternative Part 2B below tha
 2. **Set up the environment:**
 
 - Open a new Terminal (Applications > Utilities > Terminal)
-- Navigate to the "project root directory" using `cd ~/Documents/Projects/llm_engineering` (replace this path as needed with the actual path to the llm_engineering directory, your locally cloned version of the repo). Do `ls` and check you can see subdirectories for each week of the course.
+- Navigate to the "project root directory" using `cd ~/Documents/Projects/llm` (replace this path as needed with the actual path to the llm directory, your locally cloned version of the repo). Do `ls` and check you can see subdirectories for each week of the course.
 - Create the environment: `conda env create -f environment.yml`
 - Wait for a few minutes for all packages to be installed - in some cases, this can literally take 20-30 minutes if you've not used Anaconda before, and even longer depending on your internet connection. Important stuff is happening! If this runs for more than 1 hour 15 mins, or gives you other problems, please go to Part 2B instead.
-- You have now built an isolated, dedicated AI environment for engineering LLMs, running vector datastores, and so much more! You now need to **activate** it using this command: `conda activate llms`  
+- You have now built an isolated, dedicated AI environment for engineering LLMs, running vector datastores, and so much more! You now need to **activate** it using this command: `conda activate llm_env`  
 
-You should see `(llms)` in your prompt, which indicates you've activated your new environment.
+You should see `(llm_env)` in your prompt, which indicates you've activated your new environment.
 
 3. **Start Jupyter Lab:**
 
-- In the Terminal window, from within the `llm_engineering` folder, type: `jupyter lab`
+- In the Terminal window, from within the `llm` folder, type: `jupyter lab`
 
 ...and Jupyter Lab should open up in a browser. If you've not seen Jupyter Lab before, I'll explain it in a moment! Now close the jupyter lab browser tab, and close the Terminal, and move on to Part 3.
 
@@ -68,14 +68,14 @@ If not, it's not a big deal, but we might need to come back to this later if you
 You can download python here:  
 https://www.python.org/downloads/
 
-2. Navigate to the "project root directory" using `cd ~/Documents/Projects/llm_engineering` (replace this path with the actual path to the llm_engineering directory, your locally cloned version of the repo). Do `ls` and check you can see subdirectories for each week of the course.  
+2. Navigate to the "project root directory" using `cd ~/Documents/Projects/llm` (replace this path with the actual path to the llm directory, your locally cloned version of the repo). Do `ls` and check you can see subdirectories for each week of the course.  
 
 Then, create a new virtual environment with this command:  
-`python -m venv llms`
+`python -m venv llm_env`
 
 3. Activate the virtual environment with  
-`source llms/bin/activate`
-You should see (llms) in your command prompt, which is your sign that things are going well.
+`source llm_env/bin/activate`
+You should see (llm_env) in your command prompt, which is your sign that things are going well.
 
 4. Run `python -m pip install --upgrade pip` followed by `pip install -r requirements.txt`  
 This may take a few minutes to install.
@@ -84,7 +84,7 @@ In the very unlikely event that this doesn't go well, you should try the bullet-
 
 5. **Start Jupyter Lab:**
 
-From within the `llm_engineering` folder, type: `jupyter lab`  
+From within the `llm` folder, type: `jupyter lab`  
 ...and Jupyter Lab should open up, ready for you to get started. Open the `week1` folder and double click on `day1.ipynb`. Success! Now close down jupyter lab and move on to Part 3.
 
 If there are any problems, contact me!
@@ -123,7 +123,7 @@ When you have these keys, please create a new file called `.env` in your project
 
 1. Open Terminal (Applications > Utilities > Terminal)
 
-2. Navigate to the "project root directory" using `cd ~/Documents/Projects/llm_engineering` (replace this path with the actual path to the llm_engineering directory, your locally cloned version of the repo).
+2. Navigate to the "project root directory" using `cd ~/Documents/Projects/llm` (replace this path with the actual path to the llm directory, your locally cloned version of the repo).
 
 3. Create the .env file with
 
@@ -160,15 +160,15 @@ This file won't appear in Jupyter Lab because jupyter hides files starting with 
 
 - Open Terminal (Applications > Utilities > Terminal)
   
-- Navigate to the "project root directory" using `cd ~/Documents/Projects/llm_engineering` (replace this path with the actual path to the llm_engineering directory, your locally cloned version of the repo). Do `ls` and check you can see subdirectories for each week of the course.  
+- Navigate to the "project root directory" using `cd ~/Documents/Projects/llm` (replace this path with the actual path to the llm directory, your locally cloned version of the repo). Do `ls` and check you can see subdirectories for each week of the course.  
 
-- Activate your environment with `conda activate llms` (or `source llms/bin/activate` if you used the alternative approach in Part 2B)
+- Activate your environment with `conda activate llm_env` (or `source llm_env/bin/activate` if you used the alternative approach in Part 2B)
 
-- You should see (llms) in your prompt which is your sign that all is well. And now, type: `jupyter lab` and Jupyter Lab should open up, ready for you to get started. Open the `week1` folder and double click on `day1.ipynb`.
+- You should see (llm_env) in your prompt which is your sign that all is well. And now, type: `jupyter lab` and Jupyter Lab should open up, ready for you to get started. Open the `week1` folder and double click on `day1.ipynb`.
 
 And you're off to the races!
 
-Note that any time you start jupyter lab in the future, you'll need to follow these Part 5 instructions to start it from within the `llm_engineering` directory with the `llms` environment activated.
+Note that any time you start jupyter lab in the future, you'll need to follow these Part 5 instructions to start it from within the `llm` directory with the `llm_env` environment activated.
 
 For those new to Jupyter Lab / Jupyter Notebook, it's a delightful Data Science environment where you can simply hit shift+return in any cell to run it; start at the top and work your way down! I've included a notebook called 'Guide to Jupyter' that shows you more features. When we move to Google Colab in Week 3, you'll experience the same interface for Python runtimes in the cloud. 
 
